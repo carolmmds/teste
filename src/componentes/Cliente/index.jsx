@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CampoTexto from '../CampoTexto';
 import Botao from '../Botao';
-import { useNavigate } from 'react-router-dom';
 import Api from "../../api";
 import { useAuth } from '../../AuthProvider';
 import Title from '../Title';
@@ -9,7 +8,7 @@ import Container from '../Container';
 import Logout from '../Logout';
 
 const Cliente = () => {
-    const { token, setAuthToken } = useAuth();
+    const { token } = useAuth();
 
     const [clientData, setClientData] = useState({
       name: '',
@@ -37,7 +36,7 @@ const Cliente = () => {
             alert('Erro desconhecido ao criar o cliente');
           }
         } catch (error) {
-          console.error('Erro na solicitação:', error);
+          alert.error('Erro na solicitação:', error);
         }
       };
     return (

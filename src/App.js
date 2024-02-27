@@ -1,14 +1,10 @@
 import { styled } from "styled-components";
 import { AuthProvider } from './AuthProvider';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import CampoTexto from "./componentes/CampoTexto";
-import Botao from "./componentes/Botao";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Card from "./componentes/Card";
 import Login from "./componentes/Login";
 import Cliente from "./componentes/Cliente";
 import Logout from "./componentes/Logout";
-
 
 
 const AppContainer = styled.div`
@@ -25,6 +21,7 @@ function App() {
       <AuthProvider>
         <Router>
           <Routes>
+            <Route path="/" element={<Navigate to="/login" />} />
             <Route
               path="/login"
               element={
@@ -37,12 +34,12 @@ function App() {
             />
             <Route path="/cliente"
               element={
-                  <Cliente />
+                <Cliente />
               }
             />
             <Route path="/logout"
               element={
-                  <Logout />
+                <Logout />
               }
             />
           </Routes>

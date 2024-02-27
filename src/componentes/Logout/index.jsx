@@ -1,10 +1,8 @@
 import React from 'react';
-import { styled } from "styled-components";
 import { useNavigate } from 'react-router-dom';
-import Api from "../../api";
 import { useAuth } from '../../AuthProvider';
 import Botao from '../Botao';
-import Login from '../Login';
+
 
 const Logout = () => {
   const navigate = useNavigate();

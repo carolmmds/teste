@@ -17,10 +17,8 @@ const Login = () => {
         try {
 
             const response = await Api.login(email, password);
-            //console.log('Resposta do servidor:', response);
             if (response.status === 201) {
                 setAuthToken(response.data.access_token);
-                // Redirecione para a página home após o login
                 navigate('/cliente');
             } else if (response.status === 401) {
                 alert(`Erro de autenticação: ${response.data.message}`);
@@ -29,7 +27,7 @@ const Login = () => {
             }
         } catch (error) {
             console.error('Erro na solicitação:', error);
-            alert('Erro desconhecido');
+            alert('Erro ao entrar');
         }
     };
 
